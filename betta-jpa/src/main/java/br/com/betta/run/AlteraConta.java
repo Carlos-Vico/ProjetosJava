@@ -5,32 +5,45 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import br.com.betta.jpa.modelo.Conta;
+import br.com.betta.jpa.modelo.Util;
 
-public class RunTabelas {
-
+public class AlteraConta {
+Util aux ;
 	public static void main(String[] args) {
-		Conta c = new Conta();
-
-		c.setAgencia(1828);
-		c.setTitular("Juliano");
-		c.setNumero(1235);
-		c.setSaldo(2059.00);
-
-		criaConta(c);
-
-	}
-
-	public static void criaConta(Conta c) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("conta");
 		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
+		
+		Conta c = em.find(Conta.class, 4L);
 		em.persist(c);
-		em.getTransaction().commit();
+		em.getTransaction().begin();
 		System.out.println(c.toString());
+		
+		c.setAgencia(6544);
+		c.setNumero(2215);
+		c.setSaldo(110.5);
+		c.setTitular("Lucas");
+		em.getTransaction().commit();
+		
+		System.out.println(c.toString());
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		em.getTransaction().begin();
+//		em.persist(c);
+//		em.getTransaction().commit();
+//		System.out.println(c.toString());
+
 	}
 	
-	public static void alteraConta() {
-		
-	}
+	
 
 }

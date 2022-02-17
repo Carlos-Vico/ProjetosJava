@@ -15,12 +15,8 @@ public class Conta {
     private Double saldo;
     
     
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
+	
 	public Integer getAgencia() {
 		return agencia;
 	}
@@ -45,7 +41,12 @@ public class Conta {
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
 	}
+	@Override
+	public String toString() {
+		return "Conta [agencia=" + agencia + ", titular=" + titular + ", numero=" + numero + ", saldo=" + saldo + "]";
+	}
     
+	
     
 
 
